@@ -1,0 +1,31 @@
+{
+	"name": "root",
+	"version": "1.0.0",
+	"private": true,
+	"devDependencies": {
+		"lerna": "^3.16.4"
+	},
+	"workspaces": {
+		"packages": [
+			"packages/*"
+		],
+		"nohoist": [
+			"**/react-native",
+			"**/react-native/**",
+			"**/electron",
+			"**/electron/**"
+		]
+	},
+	"scripts": {
+		"clean": "rm -rf ./packages/*/node_modules && rm -rf ./node_modules",
+		"clean-locks": "rm -rf ./packages/*/yarn.lock && rm -rf ./yarn.lock && rm -rf ./packages/*/package-lock.json && rm -rf ./package-lock.json",
+		"bootstrap": "lerna bootstrap",
+		"reset": "yarn clean && yarn clean-locks && yarn bootstrap",
+		"web-dev": "yarn workspace web start",
+		"web-build": "yarn workspace web build",
+		"android-dev": "yarn workspace mobile android",
+		"android-build": "yarn workspace mobile android-build",
+		"desktop-dev": "yarn workspace desktop electron-dev",
+		"desktop-build": "yarn workspace desktop electron-pack"
+	}
+}

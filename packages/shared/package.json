@@ -1,0 +1,8 @@
+{
+	"name": "@vg10092019/shared",
+	"version": "0.0.1",
+	"peerDependencies": {
+		"react": "*",
+		"react-native": "*"
+	}
+}
